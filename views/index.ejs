@@ -1,0 +1,105 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/datatables/datatables.min.css" rel="stylesheet">
+    <link href="/assets/css/master.css" rel="stylesheet">
+<!-- start header Area -->
+
+  <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css/home.css">
+
+  <title>Welcome to Contact Manager app</title>
+</head>
+
+<%- include('partials/header') -%>
+
+  <div class="container m-auto my-5">
+    <%- include('partials/messages') -%>
+      <!-- <table id="dataTable" class="table table-striped table-warning" style="width:100%">
+        <thead>
+          <tr class="table-dark"> -->
+            <!-- <th>Name</th>
+            <th>Contact</th>
+            <th>mail id</th>
+            
+          </tr>
+        </thead>
+        <tbody> -->
+  <div class="content">
+    <div class="container">
+        <div class="page-title">
+            <h3>Contact</h3>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">Peoples in Your contact</div>
+                    <div class="card-body">
+                        <p class="card-title"></p>
+                        <table class="table table-hover" id="dataTables-example" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Mail id</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                              
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <%if(employee.length>0){%>
+                              <% employee.forEach(employee=>{ %>
+                                <tr>
+                                  <td>
+                                    <%= employee.name %>
+                                  </td>
+                                  
+                                  <td>
+                                    <%= employee.contact %>
+                                  </td>
+                                  <td>
+                                    <%= employee.email %>
+                                  </td>
+                                  
+                    
+                                  <td>
+                                    <a class="btn btn-primary me-3" href="/home/update<%= employee.id%>">Edit</a>
+                                    <form style="display: inline;" action="/home/delete<%= employee.id %>?_method=DELETE" method="POST">
+                                      <input type="hidden" name="_method" value="DELETE">
+                                      <button class="btn btn-danger">Delete</button>
+                                    </form>
+                    
+                                  </td>
+                                </tr>
+                    
+                    
+                                <% }) %>
+                                <%}else{%>
+                                    <p>No Application Found</p>
+                                <%}%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Start Footer Area -->
+<%-include('./partials/footer.ejs')%>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <%- include('partials/footer') -%>

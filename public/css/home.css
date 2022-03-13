@@ -1,0 +1,23 @@
+
+.pagination{
+float: right;
+
+}
+
+#dataTable_filter{
+display: none;
+}
+
+
+
+.btn-primary{
+    float: left;
+    width: 40%;
+    padding: 3px;
+}
+.btn-danger{
+    float: right;
+    width: 40%;
+    padding: 3px;
+}
+
